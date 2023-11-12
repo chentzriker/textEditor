@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Keyboard(props) {
   const keyboard = props.letters.map((letter, index) => (
