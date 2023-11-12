@@ -97,7 +97,7 @@ export function App() {
           changeSize={changeSize}
           changeFontFamily={changeFontFamily}
         />
-        <Specials Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
+        <Special Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
       </div>
     </main>
   );
