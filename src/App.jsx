@@ -7,25 +7,22 @@ import Specials from "./components/Specials";
 
 function App() {
   const lowercaseLetters = [];
+  const [arrText, setArrText] = useState([]);
+  const [color, setColor] = useState("black")
+  const [fontsize, setFontSize] = useState("20px")
+  const [fontfamily, setFontFamily] = useState("Ariel")
 
   for (let i = 97; i <= 122; i++) {
     lowercaseLetters.push(String.fromCharCode(i));
   }
 
-  let color = "black";
-  let fontsize = "20";
-  let fontfamily = "Arial";
-
-  // const [text1, setText1] = useState("");
-  const [arrText, setArrText] = useState([]);
-
   function handlePressLetter(e) {
     if (e.target.textContent === "delete") {
 
-      setArrText((prev) => prev.slice(0,-1))
+      setArrText((prev) => prev.slice(0, -1))
     } else if (e.target.textContent === "space") {
-      
-      setArrText((prev)=>[...prev,{ letter: " ", style: { color: color, fontSize: fontsize, fontFamily: fontfamily }, }]);
+
+      setArrText((prev) => [...prev, { letter: " ", style: { color: color, fontSize: fontsize, fontFamily: fontfamily }, }]);
     } else {
       setArrText((prev) => [...prev, { letter: e.target.textContent, style: { color: color, fontSize: fontsize, fontFamily: fontfamily }, }])
     }
@@ -53,20 +50,32 @@ function App() {
       }
     });
   }
+  function changeColor(e) {
+    setColor(e.target.textContent)
+  }
+
+  function changeSize(e) {
+    setFontSize(e.target.textContent + "px")
+  }
+
+  function changeFontFamily(e) {
+    setFontFamily(e.target.textContent)
+  }
+
   return (
-    <>
-<<<<<<< HEAD
-      <Board />
-=======
-      <ShowTypedWords arrText={arrText} />
->>>>>>> f219c0446922f7bc02cab9bd7403b59c016c6904
-      <Keyboard
-        letters={lowercaseLetters}
-        handlePressLetter={handlePressLetter}
-      />
-      <StyleText />
-      <Specials Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
-    </>
+    <main>
+      <div>
+        <Board arrText={arrText} />
+        <Keyboard
+          letters={lowercaseLetters}
+          handlePressLetter={handlePressLetter}
+        />
+      </div>
+      <div className="fitures">
+        <StyleText changeColor={changeColor} changeSize={changeSize} changeFontFamily={changeFontFamily} />
+        <Specials Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
+      </div>
+    </main>
   );
 }
 

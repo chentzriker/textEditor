@@ -1,6 +1,7 @@
 function Special(props) {
   return (
     <div>
+      <h3>specials</h3>
       <button
         onClick={() => {
           props.Clear;
