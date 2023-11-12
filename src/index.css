@@ -24,11 +24,14 @@ a:hover {
 }
 
 body {
+  background-color: #E0F4FF;
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
 h1 {
@@ -69,6 +72,5 @@ button:focus-visible {
 }
 
 .container-keyboard{
-  max-width: 50vw;
-  display: flex;
+  max-width: 40vw;
 }

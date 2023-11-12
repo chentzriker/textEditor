@@ -9,4 +9,4 @@ function Board(props) {
     </div>
   );
 }
-export default ShowTypedWords;
+export default Board;

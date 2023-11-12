@@ -16,30 +16,20 @@ function App() {
   let fontsize = "20";
   let fontfamily = "Arial";
 
-  const [text1, setText1] = useState("");
+  // const [text1, setText1] = useState("");
   const [arrText, setArrText] = useState([]);
 
   function handlePressLetter(e) {
-    if (e.target.textContent === "space") {
-      setArrText(
-        arrText.push({
-          letter: " ",
-          style: { color: color, fontSize: fontsize, fontFamily: fontfamily },
-        })
-      );
-      //setText1(text1 + " ");
-    } else if (e.target.textContent === "delete") {
-      // setText1(text1.slice(0, -1));
-      setText1(arrText[arrText.length - 1].pop);
+    if (e.target.textContent === "delete") {
+
+      setArrText((prev) => prev.slice(0,-1))
+    } else if (e.target.textContent === "space") {
+      
+      setArrText((prev)=>[...prev,{ letter: " ", style: { color: color, fontSize: fontsize, fontFamily: fontfamily }, }]);
     } else {
-      // setText1(text1 + e.target.textContent);
-      setArrText(
-        arrText.push({
-          letter: e.target.textContent,
-          style: { color: color, fontSize: fontsize, fontFamily: fontfamily },
-        })
-      );
+      setArrText((prev) => [...prev, { letter: e.target.textContent, style: { color: color, fontSize: fontsize, fontFamily: fontfamily }, }])
     }
+    console.log(arrText)
   }
 
   function Clear() {
@@ -65,7 +55,11 @@ function App() {
   }
   return (
     <>
+<<<<<<< HEAD
       <Board />
+=======
+      <ShowTypedWords arrText={arrText} />
+>>>>>>> f219c0446922f7bc02cab9bd7403b59c016c6904
       <Keyboard
         letters={lowercaseLetters}
         handlePressLetter={handlePressLetter}
