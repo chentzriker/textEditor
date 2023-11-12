@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function Keyboard(props) {
   const keyboard = props.letters.map((letter, index) => (
     <button id={index} key={index} onClick={(e) => props.handlePressLetter(e)}>
