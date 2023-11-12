@@ -1,9 +1,27 @@
-function Special() {
+function Special(props) {
   return (
     <div>
-      <button>clearALL</button>
-      <button>lowerALL</button>
-      <button>upperALL</button>
+      <button
+        onClick={() => {
+          props.Clear;
+        }}
+      >
+        clearALL
+      </button>
+      <button
+        onClick={() => {
+          props.LowerCase;
+        }}
+      >
+        lowerALL
+      </button>
+      <button
+        onClick={() => {
+          props.UpperCase;
+        }}
+      >
+        upperALL
+      </button>
     </div>
   );
 }
