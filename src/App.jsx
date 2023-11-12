@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Keyboard from "./components/Keyboard";
 import StyleText from "./components/StyleText";
+import ShowTypedWords from "./components/ShowTypedWords";
 
 function App() {
   const lowercaseLetters = [];
@@ -24,9 +25,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <p>{text1}</p>
-      </div>
+      <ShowTypedWords />
       <Keyboard
         letters={lowercaseLetters}
         handlePressLetter={handlePressLetter}
