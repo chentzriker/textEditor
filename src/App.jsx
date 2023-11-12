@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Keyboard from "./components/Keyboard";
+import StyleText from "./components/StyleText";
 
 function App() {
   const lowercaseLetters = [];
@@ -30,6 +31,7 @@ function App() {
         letters={lowercaseLetters}
         handlePressLetter={handlePressLetter}
       />
+      <StyleText />
     </>
   );
 }
