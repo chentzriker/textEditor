@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Keyboard from "./components/Keyboard";
 import StyleText from "./components/StyleText";
-import ShowTypedWords from "./components/ShowTypedWords";
+import Board from "./components/Board";
 import Specials from "./components/Specials";
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
   }
   return (
     <>
-      <ShowTypedWords />
+      <Board />
       <Keyboard
         letters={lowercaseLetters}
         handlePressLetter={handlePressLetter}
