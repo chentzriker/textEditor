@@ -6,14 +6,41 @@ import Board from "./components/Board";
 import Special from "./components/Specials";
 
 export function App() {
+  const languages = [];
   const lowercaseLetters = [];
+  const uppercaseLetters = [];
+  const hebrewLetters = [];
   const [arrText, setArrText] = useState([]);
   const [color, setColor] = useState("black");
   const [fontsize, setFontSize] = useState("20px");
   const [fontfamily, setFontFamily] = useState("Ariel");
+  const [language, setLanguage] = useState(lowercaseLetters);
 
   for (let i = 97; i <= 122; i++) {
     lowercaseLetters.push(String.fromCharCode(i));
+  }
+
+  for (let i = 65; i <= 90; i++) {
+    uppercaseLetters.push(String.fromCharCode(i));
+  }
+  for (let i = 1488; i <= 1514; i++) {
+    hebrewLetters.push(String.fromCharCode(i));
+  }
+
+  languages.push(lowercaseLetters);
+  languages.push(uppercaseLetters);
+  languages.push(hebrewLetters);
+
+  function changeLanguage(e) {
+    if (e.target.textContent === "hebrew") {
+      setLanguage(languages[2]);
+    }
+    if (e.target.textContent === "english") {
+      setLanguage(languages[0]);
+    }
+    if (e.target.textContent === "caps") {
+      setLanguage(languages[1]);
+    }
   }
 
   function handlePressLetter(e) {
@@ -33,9 +60,9 @@ export function App() {
         {
           letter: "/n",
           style: { color: color, fontSize: fontsize, fontFamily: fontfamily },
-        },]);
-    }
-    else {
+        },
+      ]);
+    } else {
       setArrText((prev) => [
         ...prev,
         {
@@ -95,8 +122,9 @@ export function App() {
       <div>
         <Board arrText={arrText} />
         <Keyboard
-          letters={lowercaseLetters}
+          letters={language}
           handlePressLetter={handlePressLetter}
+          changeLanguage={changeLanguage}
         />
       </div>
       <div className="fitures">
@@ -104,6 +132,7 @@ export function App() {
           changeColor={changeColor}
           changeSize={changeSize}
           changeFontFamily={changeFontFamily}
+          changeLanguage={changeLanguage}
         />
         <Special Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
       </div>
