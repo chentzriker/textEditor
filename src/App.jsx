@@ -15,6 +15,7 @@ export function App() {
   const [fontsize, setFontSize] = useState("20px");
   const [fontfamily, setFontFamily] = useState("Ariel");
   const [language, setLanguage] = useState(lowercaseLetters);
+  const [textAlign, setTextAlign]= useState({textAlign: 'left'})
 
   for (let i = 97; i <= 122; i++) {
     lowercaseLetters.push(String.fromCharCode(i));
@@ -110,17 +111,21 @@ export function App() {
   }
 
   function changeSize(e) {
-    setFontSize(e.target.textContent + "px");
+    setFontSize(e.target.value + "px");
   }
 
   function changeFontFamily(e) {
     setFontFamily(e.target.textContent);
   }
 
+  function changePosition(e){
+    setTextAlign({textAlign: e.target.textContent})
+  }
+
   return (
     <main>
       <div>
-        <Board arrText={arrText} />
+        <Board arrText={arrText} textPosition={textAlign} />
         <Keyboard
           letters={language}
           handlePressLetter={handlePressLetter}
@@ -134,7 +139,7 @@ export function App() {
           changeFontFamily={changeFontFamily}
           changeLanguage={changeLanguage}
         />
-        <Special Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
+        <Special changePosition={changePosition} Clear={Clear} LowerCase={LowerCase} UpperCase={UpperCase} />
       </div>
     </main>
   );

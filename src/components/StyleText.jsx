@@ -2,9 +2,7 @@ function StyleText(props) {
   return (
     <div>
       <h3>change font size</h3>
-      <button onClick={(e) => props.changeSize(e)}>14</button>
-      <button onClick={(e) => props.changeSize(e)}>16</button>
-      <button onClick={(e) => props.changeSize(e)}>18</button>
+      <input onBlur={(e) => props.changeSize(e)} type="number" id="quantity" name="quantity" min="2"/>
       <h3>change font style</h3>
       <button onClick = {(e) => props.changeFontFamily(e)}>Monospace</button>
       <button onClick = {(e) => props.changeFontFamily(e)}>inter</button>
