@@ -14,7 +14,8 @@ function Keyboard(props) {
   ));
   return (
     <div className="container-keyboard">
-      {keyboard} <br /> {otherBtns}
+      {keyboard} <br /> {otherBtns} <br />
+      <button onClick={(e) => props.handlePressLetter(e)}>enter</button>
       <button onClick={(e) => props.handlePressLetter(e)}>space</button>
       <button onClick={(e) => props.handlePressLetter(e)}>delete</button>
     </div>

@@ -16,7 +16,8 @@
 main{
   display:flex;
   align-items: end;
-  
+  max-width: 100vw;
+
 }
 
 .main {
@@ -80,5 +81,10 @@ button:focus-visible {
 }
 
 .container-keyboard{
-  max-width: 40vw;
+  max-width: 45vw;
 }
+
+h3{
+  margin-top: 1em;
+}
+

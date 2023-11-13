@@ -27,7 +27,15 @@ export function App() {
           style: { color: color, fontSize: fontsize, fontFamily: fontfamily },
         },
       ]);
-    } else {
+    } else if (e.target.textContent === "enter") {
+      setArrText((prev) => [
+        ...prev,
+        {
+          letter: "/n",
+          style: { color: color, fontSize: fontsize, fontFamily: fontfamily },
+        },]);
+    }
+    else {
       setArrText((prev) => [
         ...prev,
         {
